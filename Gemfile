@@ -15,10 +15,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem "survey"
+gem "haml-rails"
 
+gem "survey"
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'devise'
 gem 'figaro'
 
 group :development, :test do
