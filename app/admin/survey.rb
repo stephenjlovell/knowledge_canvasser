@@ -14,9 +14,11 @@ ActiveAdmin.register Survey::Survey do
 
   filter :created_at
 
+  permit_params :name, :attempts_number, :description, :active,
+                :questions_attributes, :options_attributes
+
   controller do
     # code in here will be interpreted within the context of the controller.
-
   end
 
   index do
@@ -26,7 +28,7 @@ ActiveAdmin.register Survey::Survey do
     column :attempts_number
     column :finished
     column :created_at
-    default_actions
+    actions
   end
 
   form do |f|
