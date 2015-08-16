@@ -14,6 +14,11 @@ ActiveAdmin.register Survey::Survey do
 
   filter :created_at
 
+  controller do
+    # code in here will be interpreted within the context of the controller.
+
+  end
+
   index do
     column :name
     column :description
@@ -40,7 +45,7 @@ ActiveAdmin.register Survey::Survey do
         end
       end
     end
-    f.buttons
+    f.actions
   end
 
 end
