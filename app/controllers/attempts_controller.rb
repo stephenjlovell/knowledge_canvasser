@@ -5,9 +5,9 @@ class AttemptsController < ApplicationController
     before_filter :normalize_attempts_data, :only => :create
 
     def new
-      @participant = current_user # you have to decide what to do here
-      # @participant = current_user || current_admin
-      
+      # @participant = current_user # you have to decide what to do here
+      @participant = current_user || current_admin_user
+
       unless @survey.nil?
         @attempt = @survey.attempts.new
         @attempt.answers.build
