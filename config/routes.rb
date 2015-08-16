@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :admin_users
   devise_for :users
-
-  ActiveAdmin.routes(self)
 
   resources :attempts
 

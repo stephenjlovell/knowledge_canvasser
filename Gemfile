@@ -18,7 +18,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "haml-rails"
 
 gem 'survey'
-gem 'activeadmin', github: 'activeadmin'
+
+gem 'rails_admin'
 
 gem 'devise'
 gem 'figaro'
