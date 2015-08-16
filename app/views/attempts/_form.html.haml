@@ -1,16 +1,15 @@
-%h2.survey-title
-  = @survey.name
-%p
-  %small= @attempt.survey.description
-= form_for(@attempt, url: attempt_scope(@attempt)) do |f|
-  = hidden_field_tag :survey_id, @survey.id
-  %ol.questions
-    = f.fields_for :answers, get_answer_fields(@attempt) do |answer_fields|
-      %li
-        - question = answer_fields.object.question
-        %p.question= question.text
-        %ul.options
-          = collection_radio_buttons('survey_attempt[answers_attributes]', question.id, question.options, :id, :text) do |b|
-            %li.radio
-              = b.label { b.radio_button + b.text }
-  = f.submit "Submit", class: 'btn btn-default'
+%h1
+  Survey #{@survey.name}
+= form_for(@attempt, :url => attempt_scope(@attempt)) do |f|
+  = f.fields_for :answers do |builder|
+    %ul
+      - @survey.questions.each_with_index do |question, index|
+        %li
+          %p= question.text
+          = hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id
+          - question.options.each do |option|
+            = check_box_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id
+            = option.text
+            = succeed "/" do
+              %br/
+  = f.submit Submit

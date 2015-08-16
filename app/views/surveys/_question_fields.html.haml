@@ -1,0 +1,13 @@
+%li
+  %legend Question
+  .field
+    = f.label :text
+    %br/
+    = f.text_field :text
+    %ul.options
+      = f.fields_for :options do |builder|
+        = render "option_fields", :f => builder
+    = link_to_add_field "Add a new Option", f, :options
+    = succeed "/" do
+      %br/
+    = link_to_remove_field Remove Question, f

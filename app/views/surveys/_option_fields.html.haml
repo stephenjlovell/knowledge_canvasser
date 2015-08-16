@@ -1,0 +1,9 @@
+%li
+  .field
+    = f.label :text
+    = succeed "/" do
+      %br/
+    = f.text_field :text
+    = f.check_box :correct
+    = f.label :correct
+    = link_to_remove_field Remove, f
