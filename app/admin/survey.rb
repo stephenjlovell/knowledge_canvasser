@@ -17,9 +17,9 @@ ActiveAdmin.register Survey::Survey do
   permit_params :name, :attempts_number, :description, :active,
                 :questions_attributes, :options_attributes
 
-  controller do
-    # code in here will be interpreted within the context of the controller.
-  end
+  # controller do
+  #   # code in here will be interpreted within the context of the controller.
+  # end
 
   index do
     column :name
